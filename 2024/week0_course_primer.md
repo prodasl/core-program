@@ -68,8 +68,13 @@ Throughout this course, we will provide you with a set of reflection questions t
 :::info
 **🤔 Consider the following:**
 1. What are Zero-Knowledge Proofs?
-2. What are the principles of soundness, completeness, and zero-knowledge?
-3. What distinguishes interactive from non-interactive proofs?
+They are cryptographic methods that allows one party (prover) demostrate that know a value or have performed a process without revealing any information about the data or the process itself.
+3. What are the principles of soundness, completeness, and zero-knowledge?
+**Soundness:** Ensures that a dishonest prover cannont convince a verifier of a false statement (except with negligible probability).
+**Completeness:** Guarantees that if the statement is true and the prover is honest, then the verifier will be convinced of the statement's truth.
+**Zero-Knowledge:** Ensures that no information about the statement being proved is revealed to the verifier, other than the fact the statement is true.
+5. What distinguishes interactive from non-interactive proofs?
+In non-interactive proofs the prover generates a single proof that the verifier can check without further interation on the other hand the interactive proofs needs multiple rounds of communication.
 :::
 
 ### Thought Experiments
@@ -83,9 +88,12 @@ Engaging with these thought experiments will make abstract concepts more tangibl
 :::info
 **🤔 Consider the following:**
 1. Which example did you find most enlightening, and why?
+Waldo's example, because it is simple but shows the main goal of a ZKP.
 2. How do these examples demonstrate the principles of zero-knowledge proofs?
+Showing simple methods to prove something without revealing data itself.
 3. Can you think of any potential applications of these concepts in everyday life?
-4. Can you explain these thought experiments to someone non-technical? Try it with a friend or family member!
+Access to buy RWA tokens demostrating that you are older than 18 years old and does not have legal prohibitions in the country of the RWA tokens without reveal your identity.
+7. Can you explain these thought experiments to someone non-technical? Try it with a friend or family member!
 :::
 
 ### Use-Cases and Applications
