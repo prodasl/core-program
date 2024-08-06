@@ -153,8 +153,29 @@ The key difference between the two is the number of keys used: symmetric encrypt
 :::info
 **🤔 Consider the following:**
 1. What is the primary difference between symmetric and asymmetric encryption?
+***Asymetric uses public and private keys vs symetric that uses on shared key.***
+
 2. Can you briefly explain how AES (Advanced Encryption Standard) works?
+####Key Features:
+**Symmetric Key Algorithm: Uses the same key for both encryption and decryption.
+Block Cipher: Operates on fixed-size blocks of data (128 bits).
+Key Sizes Supports three key lengths: 128 bits, 192 bits, and 256 bits.**
+####AES Encryption Process:
+Key Expansion:
+The initial key is expanded into a series of round keys using a key schedule. These round keys are derived from the original key and are used in each round of the encryption process.
+Initial Round:
+AddRoundKey: Each byte of the block is combined with the corresponding byte of the round key using bitwise XOR.
+Main Rounds (Repeated 10, 12, or 14 times depending on key size):
+SubBytes: Each byte in the block is replaced with a corresponding byte from a fixed substitution table called the S-box.
+ShiftRows: Rows of the block are shifted cyclically to the left by different offsets. This step introduces diffusion.
+MixColumns: Columns of the block are mixed using a mathematical operation over a finite field. This step further scrambles the block.
+AddRoundKey: The block is XORed with the round key derived from the key schedule.
+Final Round:
+The final round omits the MixColumns step.
+SubBytes, ShiftRows, and AddRoundKey are applied.**
+
 3. What makes RSA a popular choice for public-key encryption? 
+**RSA is popular for public-key encryption because it offers strong security based on the difficulty of factoring large prime numbers and enables secure key exchange and digital signatures.**
 :::
 
 ### Hash Functions, Merkle Trees
@@ -175,8 +196,11 @@ Explore these resources to further your understanding:
 :::info
 **🤔 Consider the following:**
 1. What is a hash function and what are its primary uses in cryptography?
+**Transform a chunk of data to a fixed lenght group of characters, that can be used to identify, check data integrity, data authenticity, etc.**
 2. How does the SHA-256 hashing algorithm function, in simple terms?
+**SHA-256 creates a unique, fixed-size output (digest) for any given input, ensuring data integrity and security.**
 3. What is the Poseidon hash function and why is it particularly useful in ZKPs?
+**It is a cryptographic hash function designed specifically for efficiency in zero-knowledge proofs.**
 :::
 
 #### Merkle Trees
@@ -191,8 +215,57 @@ A Merkle tree is a core component of blockchain and cryptography. It's a binary 
 :::info
 **🤔 Consider the following:**
 1. Can you describe the structure of a Merkle tree?
+**A Merkle tree is a binary tree where each leaf node contains a hash of a data block, and each non-leaf node contains a hash of its child nodes. The root hash represents the entire data set, allowing for efficient and secure verification of data integrity.**
+```mermaid
+graph TD
+    A[Root Hash] --> B1[Hash 0-0]
+    A --> B2[Hash 0-1]
+    B1 --> C1[Hash 1-0]
+    B1 --> C2[Hash 1-1]
+    B2 --> C3[Hash 1-2]
+    B2 --> C4[Hash 1-3]
+    C1 --> D1[Data Block 0]
+    C1 --> D2[Data Block 1]
+    C2 --> D3[Data Block 2]
+    C2 --> D4[Data Block 3]
+    C3 --> D5[Data Block 4]
+    C3 --> D6[Data Block 5]
+    C4 --> D7[Data Block 6]
+    C4 --> D8[Data Block 7]
+```
 2. How are Merkle trees used within the blockchain context?
-3. Why are Merkle trees useful for efficient and secure verification of large data structures?
+**They are used for:
+Transaction Verification: Merkle trees allow nodes to verify the inclusion of a transaction in a block efficiently.
+Data Integrity: Ensures that the data has not been tampered with by providing a single hash (the Merkle root) that represents all transactions in the block.
+Efficiency: Allows for efficient data verification and synchronization between nodes, reducing the amount of data that needs to be transferred and verified.**
+```mermaid
+graph TD
+    subgraph Block Header
+        A[Previous Block Hash]
+        B[Timestamp]
+        C[Nonce]
+        D[Merkle Root]
+    end
+
+    subgraph Block
+        D --> E1[Hash 0]
+        D --> E2[Hash 1]
+        E1 --> F1[Hash 0-0]
+        E1 --> F2[Hash 0-1]
+        E2 --> F3[Hash 1-0]
+        E2 --> F4[Hash 1-1]
+        F1 --> G1[Transaction 0]
+        F1 --> G2[Transaction 1]
+        F2 --> G3[Transaction 2]
+        F2 --> G4[Transaction 3]
+        F3 --> G5[Transaction 4]
+        F3 --> G6[Transaction 5]
+        F4 --> G7[Transaction 6]
+        F4 --> G8[Transaction 7]
+    end
+```
+4. Why are Merkle trees useful for efficient and secure verification of large data structures?
+**Merkle trees are useful for efficient and secure verification of large data structures because they enable quick verification of individual data items while ensuring data integrity through a single, compact root hash.**
 :::
 
 ### Digital Signatures (Schnorr)
