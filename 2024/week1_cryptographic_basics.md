@@ -156,7 +156,7 @@ The key difference between the two is the number of keys used: symmetric encrypt
 ***Asymetric uses public and private keys vs symetric that uses on shared key.***
 
 2. Can you briefly explain how AES (Advanced Encryption Standard) works?
-####Key Features:
+#### Key Features:
 **Symmetric Key Algorithm: Uses the same key for both encryption and decryption.
 Block Cipher: Operates on fixed-size blocks of data (128 bits).
 Key Sizes Supports three key lengths: 128 bits, 192 bits, and 256 bits.**
@@ -174,7 +174,8 @@ Final Round:
 The final round omits the MixColumns step.
 SubBytes, ShiftRows, and AddRoundKey are applied.**
 
-3. What makes RSA a popular choice for public-key encryption? 
+3. What makes RSA a popular choice for public-key encryption?
+
 **RSA is popular for public-key encryption because it offers strong security based on the difficulty of factoring large prime numbers and enables secure key exchange and digital signatures.**
 :::
 
