@@ -346,7 +346,13 @@ Start your exploration of digital signatures with this intuitive video:
 :::info
 **🤔 Consider the following:**
 1. Can you describe what digital signatures are and why they are essential in digital communications?
+**They are cryptographic tools that verify the authenticity and integrity of digital messages or documents using a private key for signing and public key for verification. They are essential to verify the data integrity and sender identity preventing tampering and impersonation.**
 2. Explain the workings of the Digital Signature Algorithm (DSA).
+
+**Key Generation: A private key (kept secret) and a corresponding public key (shared openly) are generated.
+Signing: The sender creates a signature using their private key and the hash of the message, ensuring the message's authenticity.
+Verification: The recipient uses the sender's public key to verify the signature, confirming that the message has not been altered and is from the claimed sender.**
+
 :::
 
 ### DLP-based Public-Key Cryptography (DLP, DH, Elgamal)
