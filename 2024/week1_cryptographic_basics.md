@@ -409,9 +409,13 @@ While RSA encryption is based on the hardness of factoring problem, there is ano
 :::info
 **🤔 Consider the following:**
 1. What is the Discrete Logarithm Problem (DLP)?
+** It's a mathematical challenge to find the power 𝑥 to which a base 𝑔 must be raised to produce a given value 𝑦 under modular arithmetic.**
 2. How does the Diffie-Hellman protocol work?
+**The Diffie-Hellman protocol allows two parties to securely exchange cryptographic keys over a public channel by jointly creating a shared secret, even if they start without any shared secrets.**
 3. What is the main idea behind ElGamal encryption?
+**Provide secure encryption using asymmetric keys, relying on the difficulty of solving the Discrete Logarithm Problem to ensure that even if the public key is known the private key and the encrypted message remain secure.**
 4. Can you name a drawback of using DLP-based systems?
+**They are computationally intensive, leading to slower performance, especially as key sizes increase to ensure security.**
 :::
 
 ### Cryptographic Commitments
