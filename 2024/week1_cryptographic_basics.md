@@ -363,6 +363,36 @@ While RSA encryption is based on the hardness of factoring problem, there is ano
     - [The Discrete Logarithm Problem - Khan Academy [1:55]](https://youtu.be/SL7J8hPKEWY)
     - [Public key cryptography using discrete logarithms](https://www.di-mgt.com.au/public-key-crypto-discrete-logs-0.html)
 
+### Study Notes: Public Key Cryptography Using Discrete Logarithms
+
+#### **1. Introduction**
+- **Public Key Cryptography**: A cryptographic system that uses pairs of keys—one public and one private. The security relies on the computational difficulty of certain mathematical problems.
+- **Discrete Logarithms**: This series explores public key cryptography based on the properties of discrete logarithms.
+- **Mathematical Background**: Assumes knowledge of arithmetic modulo a prime number \( p \) and some group theory.
+
+#### **2. Discrete Logarithm Problem (DLP)**
+- **Multiplicative Group Modulo p**: All systems discussed use the multiplicative group modulo \( p \), denoted \( Z^*_p \), where \( p \) is a prime number.
+- **DLP**: Given \( g \in Z^*_p \) and \( g^n \mod p \), find \( n \). This problem is considered intractable for sufficiently large \( p \), forming the basis of security for these systems.
+
+#### **3. Cryptographic Systems Using DLP**
+- **Diffie-Hellman Key Exchange**: Allows two parties to independently compute a shared secret using a large prime \( p \) and a generator \( g \). It's secure against passive eavesdroppers but vulnerable to man-in-the-middle attacks.
+- **MQV Key Agreement**: An improvement on Diffie-Hellman that attempts to prevent man-in-the-middle attacks.
+- **ElGamal Encryption**: Uses Diffie-Hellman parameters to encrypt messages.
+- **Digital Signature Algorithm (DSA)**: Uses Diffie-Hellman parameters to create compact digital signatures.
+
+#### **4. Diffie-Hellman Key Exchange**
+- **Basic Diffie-Hellman**: Two parties (Alice and Bob) agree on \( p \) and \( g \). They exchange public keys \( A = g^a \mod p \) and \( B = g^b \mod p \) and compute the shared secret \( Z = g^{ab} \mod p \).
+- **Security**: The security depends on the intractability of solving the Diffie-Hellman Problem (DHP), which is at least as hard as the DLP.
+- **Vulnerabilities**:
+  - **Man-in-the-Middle Attack**: An attacker intercepts and replaces public keys, compromising the security.
+  - **Small-Group Attack**: Occurs if \( g \) generates only a small subgroup, allowing brute-force attacks.
+
+#### **5. Improvements and Derivatives**
+- **Large Cyclical Subgroup**: Ensures \( p-1 \) has a large prime divisor \( q \) and \( g \) generates a subgroup of order \( q \mod p \) to prevent small-group attacks.
+- **MQV Key Agreement**: Addresses man-in-the-middle attacks by adding an extra verification step.
+- **ElGamal Encryption**: Encrypts a message \( m \) using the recipient's public key and the Diffie-Hellman parameters, producing a ciphertext pair \( (c1, c2) \).
+- **DSA**: Uses the same parameters
+
 2. **Diffie-Hellman Key Exchange:** This is one of the earliest practical implementations of key exchange protocols based on the Discrete Log Problem. It's critical to understand how secure communication can be established over insecure channels.
 
     This protocol is significant as it enables secure communication over insecure channels by allowing two parties to generate a shared secret key, which can then be used for encryption and decryption of messages
