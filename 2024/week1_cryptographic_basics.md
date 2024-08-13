@@ -442,9 +442,13 @@ As a final touch on this section, [this video [10:32]](https://www.youtube.com/w
 :::info
 **🤔 Consider the following:**
 1. What is the main purpose of Cryptographic Commitments?
+**Send a proof that I know or custody a message or value without send the value itself, to be able in the future to proof to a verifier that the value or message in the future.**
 2. What type of information does a Polynomial Commitment hide and reveal?
+**Hide the polynomial's coefficients and reveals the commitment's validity.**
 3. How do Pedersen Commitments contribute to privacy in cryptography?
+**Allowing data to be commited to without revealing the actual values, ensuring both confidentiality and integrity.**
 4. Why are Cryptographic Commitments important in blockchain technology?
+**They enable secure and private verification of data, ensuring that the data is committed to immutably without revealing the actual content, thereby enhancing transparency and trust while maintaining confidentiality.**
 :::
 
 ### Intro to Elliptic Curve Cryptography
