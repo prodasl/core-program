@@ -188,11 +188,67 @@ A hash function takes an input and returns a fixed-size string of bytes. **SHA-2
 The primary characteristics of a good hash function are [preimage resistance](https://en.wikipedia.org/wiki/Preimage_attack), second preimage resistance, and [collision resistance](https://en.wikipedia.org/wiki/Collision_resistance), ensuring data security and integrity. In blockchain technology, hash functions create an unalterable, unique representation of each block's content, contributing to the immutability and transparency of the system.
 
 Explore these resources to further your understanding:
-- [What Is SHA-256 Algorithm & How It Works](https://www.ssldragon.com/blog/sha-256-algorithm/)
+####- [What Is SHA-256 Algorithm & How It Works](https://www.ssldragon.com/blog/sha-256-algorithm/)
+
+**1. Overview**:
+- **SHA-256** (Secure Hash Algorithm 256-bit) is a cryptographic hash function used widely for securing data, ensuring integrity, and protecting against unauthorized access. It is part of the SHA-2 family, developed by the NSA.
+
+**2. How It Works**:
+- **Input Preparation**: Data is padded and prepared for processing.
+- **Initial Setup**: Starts with predefined constants.
+- **Data Processing**: Data is split into 512-bit blocks and processed in 64 rounds of operations.
+- **Final Hash**: Produces a unique 256-bit hash.
+
+**3. Security Features**:
+- **Collision Resistance**: Difficult to find two inputs with the same hash.
+- **Pre-image Resistance**: Hard to reverse-engineer the original input from its hash.
+- **Quantum Computing**: SHA-256 remains secure against current quantum computing threats.
+
+**4. Applications**:
+- **Cryptocurrencies**: Used in Bitcoin for transaction validation.
+- **SSL/TLS**: Ensures data integrity in secure communications.
+- **Software Verification**: Confirms the authenticity of downloaded software.
+
+**5. Comparisons**:
+- **SHA-256 vs. SHA-1**: SHA-256 is more secure with no practical collision vulnerabilities.
+- **SHA-256 vs. SHA-3**: SHA-3 uses different construction but is less widely adopted.
+
+**6. Future**:
+- **Quantum Resistance**: Ongoing research focuses on quantum-resistant algorithms, although SHA-256 remains robust today.
+
 - [How is SHA-256 used in blockchain, and why?](https://www.educative.io/answers/how-is-sha-256-used-in-blockchain-and-why)
-- [Poseidon: A new hash function for zero-knowledge proof systems](https://eprint.iacr.org/2019/458.pdf)
+#### - [Poseidon: A new hash function for zero-knowledge proof systems](https://eprint.iacr.org/2019/458.pdf)
+1. Introduction
+POSEIDON is a cryptographic hash function optimized for zero-knowledge proof systems like SNARKs, STARKs, and Bulletproofs.
+Motivation: Traditional hash functions like SHA-256 are inefficient in the context of zero-knowledge proofs, leading to significant computational overhead. POSEIDON is designed to reduce this overhead by working natively over prime fields (GF(p)).
+Applications: POSEIDON is particularly useful in scenarios where zero-knowledge proofs are required, such as privacy-preserving cryptocurrencies (e.g., Zcash) and other blockchain applications.
+2. POSEIDON Hash Function
+Sponge Construction: POSEIDON uses a sponge construction, which involves an internal permutation and is defined by parameters like rate (r) and capacity (c).
+Rate (r): Determines the throughput of the hash function.
+Capacity (c): Crucial for the security level, affecting resistance to collision and preimage attacks.
+HADES Strategy: POSEIDON uses a mixed round function strategy, combining full S-box layers and partial S-box layers to optimize security and efficiency.
+Full S-box Layers: Applied to the entire state, providing strong protection against statistical attacks.
+Partial S-box Layers: Applied to only part of the state, reducing computational cost while still offering protection against algebraic attacks.
+Permutation POSEIDONπ: The core of POSEIDON's security, consisting of a series of rounds that include adding round constants, applying S-boxes, and mixing layers using MDS matrices.
+3. Applications of POSEIDON
+Commitments: POSEIDON is used for generating commitments in zero-knowledge protocols, where the committed value is hidden.
+Merkle Trees: Ideal for use in Merkle trees, allowing efficient zero-knowledge proofs of membership in a set.
+Verifiable Encryption: Can be used in verifiable encryption schemes, where the ability to decrypt can be proven in zero-knowledge.
+4. Concrete Instantiations
+Security Levels: POSEIDON is designed to support different security levels, with specific instances tailored for 80, 128, and 256-bit security.
+MDS Matrices: MDS matrices used in POSEIDON are carefully selected to prevent vulnerabilities like subspace trails or truncated differentials.
+5. Cryptanalysis Summary
+Security Claims: POSEIDON is claimed to be secure against collisions and preimage attacks up to 2^M complexity, where M is the security level.
+Statistical Attacks: POSEIDON is designed to resist differential, linear, and higher-order differential attacks.
+Algebraic Attacks: The design also provides protection against algebraic attacks like Gröbner basis attacks.
+6. POSEIDON in Zero-Knowledge Proof Systems
+Compatibility: POSEIDON is compatible with various zero-knowledge proof systems, including Groth16, Bulletproofs, and PLONK.
+Optimized for ZKPs: The design minimizes the number of constraints required in zkSNARKs, making it efficient for generating and verifying proofs.
+7. Implementation and Performance
+Efficient Implementation: POSEIDON's design allows for efficient implementation, with fewer constraints and faster proof generation times compared to other hash functions.
+Third-Party Use Cases: POSEIDON is already in use by several blockchain projects, including Filecoin and Loopring, for tasks like Merkle tree proofs and private trading.
 - [USENIX Security '21 - Poseidon: A New Hash Function for Zero-Knowledge Proof Systems [10:45]](https://www.youtube.com/watch?v=hUx3WpDV_l0)
-    - This video is quite technical, but the first few minutes provide a good explanation for the motivation behind the Poseidon hash function.
+- This video is quite technical, but the first few minutes provide a good explanation for the motivation behind the Poseidon hash function.
 
 :::info
 **🤔 Consider the following:**
